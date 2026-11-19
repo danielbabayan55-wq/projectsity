@@ -43,13 +43,21 @@
                             <a href="/catalog"> Կատալոգ <span aria-hidden="true">▾</span></a>
                             <ul class="submenu">
                                 <?php foreach ($categories as $category): ?>
-                                    <li><a href="/catalog?category=<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></a></li>
+                                    <li><a
+                                            href="/catalog?category=<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></a>
+                                    </li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>
                         <li><a href="/contact">Կապ</a></li>
                         <li><a href="/news">Նորություններ</a></li>
                         <li><a href="/color">Color</a></li>
+                        <li><a href="/about">Մեր մասին</a></li>
+                        <li>
+                            <a href="/wishlist">
+                                ❤️ Նախընտրածներ (<?= count($_SESSION['wishlist'] ?? []) ?>)
+                            </a>
+                        </li>
                         <li>
                             THEME Tecnomarket
 
@@ -64,7 +72,8 @@
                         <?php endif; ?>
                         <li>
                             <a href="/cart" class="btn btn--primary btn--sm">
-                                Զամբյուղ <span class="count"><?= array_sum($_SESSION['cart'] ?? []) ?></span><span class="visually-hidden"> ապրանք</span>
+                                Զամբյուղ <span class="count"><?= array_sum($_SESSION['cart'] ?? []) ?></span><span
+                                    class="visually-hidden"> ապրանք</span>
                             </a>
                         </li>
                         <?php if (Auth::check()): ?>

@@ -8,6 +8,8 @@ require_once __DIR__ . '/src/core/Auth.php';
 require_once __DIR__ . '/src/controller/NewsController.php';
 require_once __DIR__ . '/src/controller/CartController.php';
 require_once __DIR__ . '/src/controller/ContactController.php';
+require_once __DIR__ . '/src/controller/AboutController.php';
+require_once __DIR__ . '/src/controller/WishlistController.php';
 $router = new Routes();
 
 $router->get('/', ['HomeController', 'index']);
@@ -50,6 +52,15 @@ $router->get('/contact', ['ContactController', 'index']);
 $router->post('/contact', ['ContactController', 'send']);
 
 $router->get('/product/{id}', ['ProductController', 'show']);
+
+$router->get('/about', ['AboutController', 'index']);
+$router->post('/about/feedback', ['AboutController', 'feedback']);
+$router->post('/about/delete', ['AboutController', 'delete'], ['admin']);
+$router->post('/about/approve', ['AboutController', 'approve'], ['admin']);
+
+$router->get('/wishlist', ['WishlistController', 'index']);
+$router->post('/wishlist/toggle', ['WishlistController', 'toggle']);
+$router->post('/wishlist/clear', ['WishlistController', 'clear']);
 
 
 

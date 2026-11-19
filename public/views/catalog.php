@@ -92,6 +92,14 @@
                                             <input type="hidden" name="back" value="/catalog">
                                             <button type="submit" class="btn btn-primary btn-sm"><span>Ավել</span></button>
                                         </form>
+                                        <?php $inWishlist = in_array($p['id'], $_SESSION['wishlist'] ?? []); ?>
+                                        <form method="post" action="/wishlist/toggle" style="display: inline;">
+                                            <?= csrf_field() ?>
+                                            <input type="hidden" name="product_id" value="<?= (int) ($p['id'] ?? 0) ?>">
+                                            <button type="submit" class="btn btn-sm" title="Նախընտրածներ">
+                                                <?= $inWishlist ? '❤️' : '🤍' ?>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </article>

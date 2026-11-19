@@ -7,6 +7,10 @@ class AdminController extends Controller
 {
     public function index(): void
     {
+        if(!Auth::hasRole('admin')){
+            header('Location: /login');
+            exit();
+        }
         $this->view('admin-panel', [
             'title' => 'Ադմին պանել'
         ]);

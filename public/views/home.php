@@ -10,7 +10,7 @@
                 </p>
                 <div class="flex gap-10 flex-wrap">
                     <a href="/catalog.php" class="btn btn--light">Դիտել կատալոգը</a>
-                    <a href="#features" class="btn btn--outline-light">Մեր մասին</a>
+                    <a href="/about" class="btn btn--outline-light">Մեր մասին</a>
                 </div>
             </div>
         </div>
@@ -25,11 +25,12 @@
             <div class="grid-auto gap-20 mb-30">
                 <?php foreach ($products as $p): ?>
                     <article class="card">
-                        <?php if(!empty($p['discount'])) echo "<span class='card__badge'>$p[discount]%</span>"?>
+                        <?php if (!empty($p['discount']))
+                            echo "<span class='card__badge'>$p[discount]%</span>" ?>
 
-                        <picture class="card__media ratio-3-2">
-                            <img class="img-cover" src="/images/<?= $p['image']?>" alt="product name" width="600" height="400"
-                                loading="lazy">
+                            <picture class="card__media ratio-3-2">
+                                <img class="img-cover" src="/images/<?= $p['image'] ?>" alt="product name" width="600"
+                                height="400" loading="lazy">
                         </picture>
 
                         <div class="card__body">
@@ -39,12 +40,21 @@
 
                             <div class="card__footer">
                                 <p class="card__price">
-                                    <?= number_format($p['price'], 0, '.', ' ') ?> ֏</p>
+                                    <?= number_format($p['price'], 0, '.', ' ') ?> ֏
+                                </p>
                                 <form method="post" action="/cart/add">
                                     <?= csrf_field() ?>
-                                    <input type="hidden" name="id" value="<?= htmlspecialchars($p['id'] ?? '')?>">
+                                    <input type="hidden" name="id" value="<?= htmlspecialchars($p['id'] ?? '') ?>">
                                     <input type="hidden" name="back" value="/">
                                     <button type="submit" class="btn btn-primary btn-sm"><span>Գնել</span></button>
+                                </form>
+                                <?php $inWishlist = in_array($p['id'], $_SESSION['wishlist'] ?? []); ?>
+                                <form method="post" action="/wishlist/toggle" style="display: inline;">
+                                    <?= csrf_field() ?>
+                                    <input type="hidden" name="product_id" value="<?= (int) ($p['id'] ?? 0) ?>">
+                                    <button type="submit" class="btn btn-sm" title="Նախընտրածներ">
+                                        <?= $inWishlist ? '❤️' : '🤍' ?>
+                                    </button>
                                 </form>
                             </div>
                         </div>

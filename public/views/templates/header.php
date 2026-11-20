@@ -27,7 +27,7 @@
 
         <div class="row align-center justify-between">
             <div class="col">
-                <a href="/" class="logo">TO CHANGE</a>
+                <a href="/" class="logo">PROJECT SITY</a>
             </div>
 
             <div class="col">
@@ -51,16 +51,11 @@
                         </li>
                         <li><a href="/contact">Կապ</a></li>
                         <li><a href="/news">Նորություններ</a></li>
-                        <li><a href="/color">Color</a></li>
                         <li><a href="/about">Մեր մասին</a></li>
                         <li>
                             <a href="/wishlist">
                                 ❤️ Նախընտրածներ (<?= count($_SESSION['wishlist'] ?? []) ?>)
                             </a>
-                        </li>
-                        <li>
-                            THEME Tecnomarket
-
                         </li>
                         <?php if (Auth::hasRole('admin', 'manager')): ?>
                             <li> <a href="/admin">Կառավարման Վահանակ</a></li>

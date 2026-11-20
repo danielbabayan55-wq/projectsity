@@ -2,7 +2,7 @@
     <div class="row flex-wrap">
         <div class="col w-40 w-md-100">
             <p class="logo mb-10"><a href="/"></a></p>
-            <p>Տեխնիկայի խանութ Երևանում 2018 թվականից։ Ուսումնական նախագիծ։</p>
+            <p>Ուսումնական նախագիծ</p>
         </div>
 
         <div class="col w-25 w-md-50 w-sm-100">
@@ -22,14 +22,14 @@
             <ul>
                 <li>Երևան, Աբովյան 1</li>
                 <li><a href="tel:+37410000000">+374 10 00 00 00</a></li>
-                <li><a href="mailto:info@technomarket.example">info@technomarket.example</a></li>
+                <li><a href="mailto:info@technomarket.example">info@projectsity.example</a></li>
             </ul>
         </div>
     </div>
 
     <div class="row flex-wrap justify-between footer__bottom">
-        <div class="col">©</div>
-        <div class="col">PHP + MySQL · Բլոկ 3</div>
+        <div class="col">© 2026 Projectsity</div>
+        <div class="col">PHP + MySQL</div>
     </div>
 </footer>
 
